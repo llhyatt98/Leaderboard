@@ -55,7 +55,7 @@ const generateLeaderboard = (playerScores: Array<playerScoreItem>, playerNames: 
         return { ...player, score, winner: false };
     })
     .filter(row => row !== undefined) // remove all null scores
-    .sort((a, b) => a.score - b.score); // sort by score least to greatest
+    .sort((a, b) => a.score - b.score); // sort by score least to greatest (lowest scores first)
 
     leaderboard[leaderboard.length - 1].winner = true; // assigning winner (nothing stated about multiple winners)
     
@@ -76,7 +76,7 @@ const playerScores = [ // playerScores
     {id: 4, roundScores: [0, 0, -1, -1]},
     {id: 1, roundScores: [1, 0, -2, -1]},
 ];
-  
+
 const playerNames = [ // playerNames
     {id: 4, name: "Bob"},
     {id: 5, name: "Ann"},
